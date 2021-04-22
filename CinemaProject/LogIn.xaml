@@ -1,0 +1,192 @@
+﻿<Page x:Class="CinemaProject.LogIn"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CinemaProject"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="900"
+      Title="LogIn">
+
+    <Page.Resources>
+        <ResourceDictionary>
+
+
+            <BitmapImage x:Key="Image1" UriSource="Peyzaj.jpg"></BitmapImage>
+            <BitmapImage x:Key="Image2" UriSource="Peyzaj1.jpg"></BitmapImage>
+            <BitmapImage x:Key="Image3" UriSource="Peyzaj3.jpg"></BitmapImage>
+            <BitmapImage x:Key="Image4" UriSource="Peyzaj4.jpg"></BitmapImage>
+        </ResourceDictionary>
+
+    </Page.Resources>
+
+    <Grid Background="Wheat">
+        <!--<Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#FF5F6D" Offset="0.4"></GradientStop>
+                <GradientStop Color="#FFC371" Offset="0.9"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>-->
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"></ColumnDefinition>
+            <ColumnDefinition Width="450"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel
+            Grid.Column="1"
+            Margin="51,50,49,50"
+            
+            >
+            <Ellipse
+                Width="100" 
+                Height="100"
+                HorizontalAlignment="Center"
+                >
+                <Ellipse.Fill>
+                    <ImageBrush
+                        Stretch="UniformToFill"
+                        ImageSource="Peyzaj.jpg">
+
+                    </ImageBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <!--sign up-->
+
+            <TextBlock Margin="0,30,0,0">
+                Need an account? <Hyperlink TextDecorations="None">SignUp</Hyperlink>
+            </TextBlock>
+
+            <!--Email & password-->
+            <Border
+                Height="50"
+                BorderBrush="Silver"
+                BorderThickness="2"
+                CornerRadius="4"
+                Margin="0,10"
+                >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Width="25"
+                        Height="25"
+                    
+                        Source="mail.png"
+                        ></Image>
+                    <TextBox Background="Transparent" Grid.Column="1" Foreground="Silver" VerticalAlignment="Center" FontWeight="SemiBold" Text="Email" BorderThickness="0"></TextBox>
+                </Grid>
+            </Border>
+
+
+
+            <!--Password-->
+            <Border
+                Height="50"
+                BorderBrush="Silver"
+                BorderThickness="2"
+                CornerRadius="4"
+                Margin="0,0,0,20"
+                >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Width="25"
+                        Height="25"
+                    
+                        Source="Password.png"
+                        ></Image>
+                    <PasswordBox Background="Transparent" Grid.Column="1" Foreground="Silver" VerticalAlignment="Center" FontWeight="SemiBold" Password="Password" BorderThickness="0"></PasswordBox>
+                </Grid>
+            </Border>
+
+            <Button
+                Background="MidnightBlue"
+                BorderThickness="0"
+                Content="Login In"
+                Foreground="White"
+                Height="50"
+                ></Button>
+        </StackPanel>
+
+
+
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20"><Hyperlink TextDecorations="None">Forgot your password ?</Hyperlink></TextBlock>
+
+
+
+        <Image Stretch="UniformToFill"
+               Source="{StaticResource Image1}">
+
+
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="Opacity"
+                                SpeedRatio=".5"
+                                From="1"
+                                To=".5"
+                                RepeatBehavior="Forever"/>
+ <DoubleAnimation
+                                Storyboard.TargetProperty="Opacity"
+                                SpeedRatio=".5"
+                                From=".5"
+                                To="1"
+                                RepeatBehavior="Forever"/>
+
+
+
+                            <ObjectAnimationUsingKeyFrames
+                                Storyboard.TargetProperty="Source"
+                                Duration="0:0:8"
+                                RepeatBehavior="Forever">
+                                <DiscreteObjectKeyFrame
+                                    Value="{StaticResource Image2}"
+                                    KeyTime="0:0:2">
+                                </DiscreteObjectKeyFrame>
+                                 <DiscreteObjectKeyFrame
+                                    Value="{StaticResource Image3}"
+                                    KeyTime="0:0:4">
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame
+                                    Value="{StaticResource Image4}"
+                                    KeyTime="0:0:6">
+                                </DiscreteObjectKeyFrame>
+                                
+                                
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+
+        </Image>
+
+        <!--<Grid Grid.Column="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+            
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Georgia" FontSize="20">Cinema</TextBlock>
+
+        <TextBox Name="EmailVerificationTxtBox" Grid.Row="1" Background="Transparent" FontFamily="Georgia" FontSize="20"></TextBox>
+
+        </Grid>-->
+    </Grid>
+</Page>
