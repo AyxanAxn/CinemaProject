@@ -31,6 +31,7 @@ namespace CinemaProject
             LogIn log = new LogIn();
             Login.Visibility = Visibility.Visible;
             Login.Navigate(log);
+            
         }
     }
 }

@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CinemaProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="900">
+        Title="MainWindow" Height="500" Width="900">
 
     
     
     <Grid>
         <Button Name="SaveBtn" Click="SaveBtn_Click" Height="50" Width="50"></Button>
-        <Frame Source="LogIn.xaml" Name="Login"></Frame>
+        <Frame NavigationUIVisibility="Hidden"  Source="LogIn.xaml" Name="Login"></Frame>
         
     </Grid>
 </Window>

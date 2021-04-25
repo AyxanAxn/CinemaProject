@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CinemaProject"
       mc:Ignorable="d"
-      d:DesignHeight="450" d:DesignWidth="900"
+      d:DesignHeight="500" d:DesignWidth="900"
       Title="LogIn">
 
     <Page.Resources>
@@ -20,20 +20,14 @@
 
     </Page.Resources>
 
-    <Grid Background="Wheat">
-        <!--<Grid.Background>
-            <LinearGradientBrush>
-                <GradientStop Color="#FF5F6D" Offset="0.4"></GradientStop>
-                <GradientStop Color="#FFC371" Offset="0.9"></GradientStop>
-            </LinearGradientBrush>
-        </Grid.Background>-->
-
-
+    <Grid Background="Wheat" Name="loginGrid">
+      
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="450"></ColumnDefinition>
             <ColumnDefinition Width="450"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+            <Frame Name="signup" Source="SignUpPage.xaml" NavigationUIVisibility="Hidden"></Frame>
         <StackPanel
             Grid.Column="1"
             Margin="51,50,49,50"
@@ -54,9 +48,8 @@
             </Ellipse>
 
             <!--sign up-->
-
             <TextBlock Margin="0,30,0,0">
-                Need an account? <Hyperlink TextDecorations="None">SignUp</Hyperlink>
+                Need an account? <Hyperlink TextDecorations="None" Click="Hyperlink_Click">Sign up</Hyperlink>
             </TextBlock>
 
             <!--Email & password-->
@@ -79,11 +72,9 @@
                     
                         Source="mail.png"
                         ></Image>
-                    <TextBox Background="Transparent" Grid.Column="1" Foreground="Silver" VerticalAlignment="Center" FontWeight="SemiBold" Text="Email" BorderThickness="0"></TextBox>
+                    <TextBox Name="EmailTxtBox" Background="Transparent" Grid.Column="1" Foreground="Silver" VerticalAlignment="Center" FontWeight="SemiBold" Text="Email" BorderThickness="0"></TextBox>
                 </Grid>
             </Border>
-
-
 
             <!--Password-->
             <Border
@@ -105,7 +96,7 @@
                     
                         Source="Password.png"
                         ></Image>
-                    <PasswordBox Background="Transparent" Grid.Column="1" Foreground="Silver" VerticalAlignment="Center" FontWeight="SemiBold" Password="Password" BorderThickness="0"></PasswordBox>
+                    <PasswordBox Name="PassBox" Background="Transparent" Grid.Column="1" Foreground="Silver" VerticalAlignment="Center" FontWeight="SemiBold" Password="Password" BorderThickness="0"></PasswordBox>
                 </Grid>
             </Border>
 
@@ -115,14 +106,12 @@
                 Content="Login In"
                 Foreground="White"
                 Height="50"
+                Name="LogInBtn"
+                Click="LogInBtn_Click"
                 ></Button>
         </StackPanel>
 
-
-
         <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20"><Hyperlink TextDecorations="None">Forgot your password ?</Hyperlink></TextBlock>
-
-
 
         <Image Stretch="UniformToFill"
                Source="{StaticResource Image1}">
@@ -138,7 +127,7 @@
                                 From="1"
                                 To=".5"
                                 RepeatBehavior="Forever"/>
- <DoubleAnimation
+                            <DoubleAnimation
                                 Storyboard.TargetProperty="Opacity"
                                 SpeedRatio=".5"
                                 From=".5"
@@ -155,7 +144,7 @@
                                     Value="{StaticResource Image2}"
                                     KeyTime="0:0:2">
                                 </DiscreteObjectKeyFrame>
-                                 <DiscreteObjectKeyFrame
+                                <DiscreteObjectKeyFrame
                                     Value="{StaticResource Image3}"
                                     KeyTime="0:0:4">
                                 </DiscreteObjectKeyFrame>
@@ -163,8 +152,8 @@
                                     Value="{StaticResource Image4}"
                                     KeyTime="0:0:6">
                                 </DiscreteObjectKeyFrame>
-                                
-                                
+
+
                             </ObjectAnimationUsingKeyFrames>
                         </Storyboard>
 
@@ -173,20 +162,5 @@
             </Image.Triggers>
 
         </Image>
-
-        <!--<Grid Grid.Column="1">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-        </Grid.RowDefinitions>
-        
-            
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Georgia" FontSize="20">Cinema</TextBlock>
-
-        <TextBox Name="EmailVerificationTxtBox" Grid.Row="1" Background="Transparent" FontFamily="Georgia" FontSize="20"></TextBox>
-
-        </Grid>-->
     </Grid>
 </Page>
